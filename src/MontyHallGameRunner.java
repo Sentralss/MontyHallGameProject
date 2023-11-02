@@ -10,7 +10,12 @@ public class MontyHallGameRunner
         System.out.println("There are two goats and a car randomly placed behind doors 1, 2, and 3");
         System.out.print("Where do you think the car is? Enter 1, 2, or 3: ");
         int door = scan.nextInt();
-        System.out.println("One of the goats i behind door number ");
+        System.out.println("One of the goats is behind door number " + goat1());
+        System.out.print("Do you want to switch your guess? Yes or no: ");
+        String change = scan.nextLine();
+        MontyHallGame doornum = new MontyHallGame(door, change);
+        System.out.println();
+
 
 
 
