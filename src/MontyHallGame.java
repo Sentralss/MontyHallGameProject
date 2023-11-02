@@ -31,12 +31,16 @@ public class MontyHallGame
         return (int) goat;
     }
 
-    public boolean swtich()
+    public boolean change()
     {
         if(change.equals("No"))
         {
 
         }
+        else if(change.equals("Yes")){
+
+        }
+        return change;
     }
 
 
