@@ -47,7 +47,6 @@ public class MontyHallGame
             goatdoor = 1;
         }
 
-
         return goatdoor;
     }
 
