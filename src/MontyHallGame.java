@@ -1,99 +1,45 @@
+import java.util.Scanner;
 public class MontyHallGame
 {
     private int door;
     private int goatdoor;
     private String change;
+    private int cardoor;
 
-    public MontyHallGame(int door)
+    public MontyHallGame()
     {
-        this.door = door;
-    }
-    public MontyHallGame(int door, String change)
-    {
-        this.door = door;
-        this.change = change;
+        cardoor = (int) (Math.random()*3 + 1);
     }
 
-    public int cardoor()
+    public void goat1()
     {
-       return (int) (Math.random()*3 + 1);
+        do{
+            goatdoor = (int) (Math.random()*3 + 1);
+        } while (goatdoor == cardoor || goatdoor == door);
+
+        System.out.println("One of the goats is behind door number " + goatdoor);
+
     }
 
-    public int goat1()
-    {
-        if(door == 1 && cardoor() == 2)
-        {
-            goatdoor = 3;
+    public void switcher() {
+        int i;
+        for (i = 1; i <= 3; i++) {
+            if (i != door && i != goatdoor) {
+                door = i;
+                break;
+            }
         }
-        else if(door == 1 && cardoor() == 3)
-        {
-            goatdoor = 2;
-        }
-        else if(door == 2 && cardoor() == 1)
-        {
-            goatdoor = 3;
-        }
-        else if(door == 2 && cardoor() == 3)
-        {
-            goatdoor = 1;
-        }
-        else if(door == 3 && cardoor() == 1)
-        {
-            goatdoor = 2;
-        }
-        else if(door == 3 && cardoor() == 2)
-        {
-            goatdoor = 1;
-        }
-        return goatdoor;
+        System.out.println("Guess switched from " + door + " to " + i);
     }
 
-    public boolean change()
-    {
-        if(change.equals("No") || change.equals("no"))
-        {
-            return false;
-
-        }
-        else if(change.equals("Yes") || change.equals("yes")){
-            return true;
-        }
-        return false;
-    }
-
-    public int switcher()
-    {
-        if(change() == true) {
-            if (goatdoor == 1 && door == 2) {
-                door = 3;
-            }
-            else if (goatdoor == 1 && door == 3) {
-                door = 2;
-            }
-            else if (goatdoor == 2 && door == 1) {
-                door = 3;
-            }
-            else if (goatdoor == 2 && door == 3) {
-                door = 1;
-            }
-            else if (goatdoor == 3 && door == 2) {
-                door = 1;
-            }
-            else if (goatdoor == 3 && door == 1) {
-                door = 2;
-            }
-
-        }
-        return door;
-    }
     public String win()
     {
-        if(door == cardoor()){
+        if(door == cardoor){
             System.out.println("You won the car!");
         }
         else
         {
-            System.out.println("The car is behind door " + cardoor() + ". You lost! (Or you could say you won a goat!)");
+            System.out.println("The car is behind door " + cardoor + ". You lost! (Or you could say you won a goat!)");
         }
         return "";
     }
