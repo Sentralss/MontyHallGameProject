@@ -14,12 +14,16 @@ public class MontyHallGameRunner
         int door = scan.nextInt();
         MontyHallGame doornum = new MontyHallGame(door);
         System.out.println("One of the goats is behind door number " + doornum.goat1());
-        System.out.print("Do you want to switch your guess? Yes or no: ");
         String changes = scan.nextLine();
-        //MontyHallGame doornum1 = new MontyHallGame(door, changes);
+        System.out.print("Do you want to switch your guess? Yes or no: ");
+        changes = scan.nextLine();
+        MontyHallGame doornum1 = new MontyHallGame(door, changes);
         System.out.println();
-        //System.out.print(doornum.switcher());
-        //System.out.println(doornum.win());
+        if(doornum1.change() == true)
+        {
+            System.out.println("Guess switched from " + door + " to " + doornum1.switcher());
+        }
+        System.out.println(doornum1.win());
 
 
 

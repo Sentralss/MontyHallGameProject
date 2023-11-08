@@ -4,15 +4,14 @@ public class MontyHallGame
     private int goatdoor;
     private String change;
 
+    public MontyHallGame(int door)
+    {
+        this.door = door;
+    }
     public MontyHallGame(int door, String change)
     {
         this.door = door;
         this.change = change;
-    }
-
-    public MontyHallGame(int door)
-    {
-        this.door = door;
     }
 
     public int cardoor()
@@ -26,38 +25,37 @@ public class MontyHallGame
         {
             goatdoor = 3;
         }
-        if(door == 1 && cardoor() ==3)
+        else if(door == 1 && cardoor() == 3)
         {
             goatdoor = 2;
         }
-        if(door == 2 && cardoor() == 1)
+        else if(door == 2 && cardoor() == 1)
         {
             goatdoor = 3;
         }
-        if(door == 2 && cardoor() == 3)
+        else if(door == 2 && cardoor() == 3)
         {
             goatdoor = 1;
         }
-        if(door == 3 && cardoor() == 1)
+        else if(door == 3 && cardoor() == 1)
         {
             goatdoor = 2;
         }
-        if(door == 3 && cardoor() == 2)
+        else if(door == 3 && cardoor() == 2)
         {
             goatdoor = 1;
         }
-
         return goatdoor;
     }
 
     public boolean change()
     {
-        if(change.equals("No"))
+        if(change.equals("No") || change.equals("no"))
         {
             return false;
 
         }
-        else if(change.equals("Yes")){
+        else if(change.equals("Yes") || change.equals("yes")){
             return true;
         }
         return false;
@@ -66,33 +64,31 @@ public class MontyHallGame
     public int switcher()
     {
         if(change() == true) {
-            int switches = 0;
-            if (goat1() == 1 && door == 2) {
-                switches = 3;
+            if (goatdoor == 1 && door == 2) {
+                door = 3;
             }
-            if (goat1() == 1 && door == 3) {
-                switches = 2;
+            else if (goatdoor == 1 && door == 3) {
+                door = 2;
             }
-            if (goat1() == 2 && door == 1) {
-                switches = 3;
+            else if (goatdoor == 2 && door == 1) {
+                door = 3;
             }
-            if (goat1() == 2 && door == 3) {
-                switches = 1;
+            else if (goatdoor == 2 && door == 3) {
+                door = 1;
             }
-            if (goat1() == 3 && door == 2) {
-                switches = 1;
+            else if (goatdoor == 3 && door == 2) {
+                door = 1;
             }
-            if (goat1() == 3 && door == 1) {
-                switches = 2;
+            else if (goatdoor == 3 && door == 1) {
+                door = 2;
             }
-                System.out.println("Guess switched from " + door + " to " + switches);
 
         }
         return door;
     }
     public String win()
     {
-        if(switcher() == cardoor()){
+        if(door == cardoor()){
             System.out.println("You won the car!");
         }
         else
