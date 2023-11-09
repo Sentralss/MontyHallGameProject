@@ -3,7 +3,6 @@ public class MontyHallGame
 {
     private int door;
     private int goatdoor;
-    private String change;
     private int cardoor;
 
     public MontyHallGame()
@@ -21,15 +20,15 @@ public class MontyHallGame
 
     }
 
-    public void switcher() {
-        int i;
-        for (i = 1; i <= 3; i++) {
-            if (i != door && i != goatdoor) {
+    public void switcher()
+    {
+        for (int i = 1; i < 4; i++) {
+            if (i != door && i != goatdoor)
+            {
                 door = i;
                 break;
             }
         }
-        System.out.println("Guess switched from " + door + " to " + i);
     }
 
     public String win()
@@ -42,6 +41,9 @@ public class MontyHallGame
             System.out.println("The car is behind door " + cardoor + ". You lost! (Or you could say you won a goat!)");
         }
         return "";
+    }
+    public int getCarDoor() {
+        return cardoor;
     }
 
 
